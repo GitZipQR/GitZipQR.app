@@ -6,7 +6,7 @@ import "./globals.css";
 // Backend is hardcoded; no IP field in UI
 
 type Plan = "oss" | "pro";
-type Lang = "en" | "ru";
+type Lang = "en" | "ru" | "kk" | "ar" | "zh";
 
 const T: Record<Lang, any> = {
   en: {
@@ -22,6 +22,11 @@ const T: Record<Lang, any> = {
     wallet: "Wallet", copy: "Copy", copied: "Copied!",
     support: "Support the project", supportNote: "Donations keep GitZipQR alive. Encryption/Decryption is free now.",
     liveScan: "Live Scan", stego: "Stego (WEBP)",
+    browser: "Browser", webModeTitle: "Web mode",
+    webModeText: "Encryption/decryption run on the server. Results will be available for download. Some desktop-only actions may be unavailable.",
+    desktopRequired: "Desktop app required", copyNotAvailable: "Copy not available",
+    webNote: "Web mode: processing runs on the server; results are provided for download.",
+    donePdf: "Done: PDF ready", doneOpen: "Done: you may open",
   },
   ru: {
     enc: "Шифрование → QR", dec: "Расшифровка из QR", pick: "Выбрать…",
@@ -36,6 +41,68 @@ const T: Record<Lang, any> = {
     wallet: "Кошелёк", copy: "Скопировать", copied: "Скопировано!",
     support: "Поддержать проект", supportNote: "Пожертвования держат GitZipQR в строю. Кредиты для шифрования/расшифровки больше не нужны.",
     liveScan: "Live Scan", stego: "Стего (WEBP)",
+    browser: "Браузер", webModeTitle: "Веб-режим",
+    webModeText: "Шифрование/расшифровка выполняются на сервере. Результат будет доступен для скачивания. Часть действий доступна только в десктопной версии.",
+    desktopRequired: "Нужен десктопный клиент", copyNotAvailable: "Копирование недоступно",
+    webNote: "Веб-режим: обработка идёт на сервере, результат можно скачать.",
+    donePdf: "Готово: PDF создан", doneOpen: "Готово: можно открыть",
+  },
+  kk: {
+    enc: "Шифрлау → QR", dec: "QR-дан шешу", pick: "Таңдау…",
+    selected: "Таңдалды", dropFile: "Файлды/қалтаны басып не сүйреп тастаңыз", outName: "Шығыс файлының атауы",
+    runEncode: "Шифрлауды іске қосу", cancel: "Бас тарту",
+    openPdf: "PDF ашу", open: "Ашу", showInFolder: "Қалтада көрсету",
+    browsePdf: "Таңдау… PDF / Суреттер", collect: "Жинап, шешу",
+    logs: "Логтар", bindPhoto: "Фотомен байланыстыру", choosePhoto: "Фотосурет таңдау",
+    pass: "Құпиясөз (≥20 таңба)", passFile: ".txt/.bin файлын қолдану", passText: "Мәтінмен",
+    paperxToggle: "PaperStorageX қосу (Барлық дерек A пішімді беттерде)",
+    pxType: "Мұрағат түрі", pxPage: "Бет", pxDpi: "DPI", pxMargin: "Жиек (мм)", pxCell: "Ұяшық (px)", pxNano: "Nanotech",
+    wallet: "Әмиян", copy: "Көшіру", copied: "Көшірілді!",
+    support: "Жобаны қолдау", supportNote: "Донаттар GitZipQR-ды қолдайды. Шифрлау/шешу қазір тегін.",
+    liveScan: "Тікелей скан", stego: "Стего (WEBP)",
+    browser: "Браузер", webModeTitle: "Веб-режим",
+    webModeText: "Шифрлау/шешу серверде орындалады. Нәтиже жүктеу үшін дайын болады. Кейбір әрекеттер тек десктопта қолжетімді.",
+    desktopRequired: "Десктоп клиенті қажет", copyNotAvailable: "Көшіру қолжетімсіз",
+    webNote: "Веб-режим: өңдеу серверде орындалады, нәтижені жүктеуге болады.",
+    donePdf: "Дайын: PDF жасалды", doneOpen: "Дайын: ашуға болады",
+  },
+  ar: {
+    enc: "تشفير → QR", dec: "فك التشفير من QR", pick: "اختر…",
+    selected: "تم الاختيار", dropFile: "انقر/اسحب ملفًا أو مجلدًا", outName: "اسم ملف الإخراج",
+    runEncode: "بدء التشفير", cancel: "إلغاء",
+    openPdf: "فتح PDF", open: "فتح", showInFolder: "إظهار في المجلد",
+    browsePdf: "اختر… PDF / صور", collect: "تجميع وفك التشفير",
+    logs: "السجلات", bindPhoto: "ربط بصورة", choosePhoto: "اختر صورة",
+    pass: "كلمة المرور (≥20 حرفًا)", passFile: "استخدام ملف .txt/.bin", passText: "إدخال نص",
+    paperxToggle: "تفعيل PaperStorageX (كل بياناتك في صفحات بحجم A)",
+    pxType: "نوع الأرشيف", pxPage: "الصفحة", pxDpi: "الدقة", pxMargin: "الهامش (مم)", pxCell: "الخلية (بكسل)", pxNano: "Nanotech",
+    wallet: "المحفظة", copy: "نسخ", copied: "تم النسخ!",
+    support: "ادعم المشروع", supportNote: "التبرعات تبقي GitZipQR حيًا. التشفير/فك التشفير مجاني الآن.",
+    liveScan: "مسح مباشر", stego: "ستيجو (WEBP)",
+    browser: "المتصفح", webModeTitle: "وضع الويب",
+    webModeText: "يتم التشفير/فك التشفير على الخادم. ستكون النتيجة متاحة للتنزيل. بعض الإجراءات متاحة فقط على سطح المكتب.",
+    desktopRequired: "يتطلب تطبيق سطح المكتب", copyNotAvailable: "النسخ غير متاح",
+    webNote: "وضع الويب: تتم المعالجة على الخادم والنتيجة جاهزة للتنزيل.",
+    donePdf: "تم: PDF جاهز", doneOpen: "تم: يمكنك الفتح",
+  },
+  zh: {
+    enc: "加密 → QR", dec: "从 QR 解密", pick: "选择…",
+    selected: "已选择", dropFile: "点击/拖放文件或文件夹", outName: "输出名称",
+    runEncode: "开始加密", cancel: "取消",
+    openPdf: "打开 PDF", open: "打开", showInFolder: "在文件夹中显示",
+    browsePdf: "选择… PDF / 图片", collect: "汇总并解密",
+    logs: "日志", bindPhoto: "绑定照片", choosePhoto: "选择照片",
+    pass: "密码（≥20 个字符）", passFile: "使用 .txt/.bin 文件", passText: "文本",
+    paperxToggle: "启用 PaperStorageX（所有数据以 A 格式页面保存）",
+    pxType: "归档类型", pxPage: "页面", pxDpi: "DPI", pxMargin: "边距 (mm)", pxCell: "单元格 (px)", pxNano: "Nanotech",
+    wallet: "钱包", copy: "复制", copied: "已复制！",
+    support: "支持项目", supportNote: "捐赠可让 GitZipQR 持续运行。现在加密/解密免费。",
+    liveScan: "实时扫描", stego: "隐写 (WEBP)",
+    browser: "浏览器", webModeTitle: "网页模式",
+    webModeText: "加密/解密在服务器上进行，结果可下载。部分操作仅限桌面版。",
+    desktopRequired: "需要桌面应用", copyNotAvailable: "无法复制",
+    webNote: "网页模式：在服务器处理，结果可下载。",
+    donePdf: "完成：PDF 已生成", doneOpen: "完成：可以打开",
   }
 };
 
@@ -56,6 +123,7 @@ function Progress({ value }: { value: number }) {
 
 export default function Page() {
   const [lang, setLang] = useState<Lang>("ru"); const tr = T[lang];
+  const isRtl = lang === "ar";
   const [plan, setPlan] = useState<Plan>("pro"); // default PRO UI
   const [toast, setToast] = useState<{ m: string; k?: "ok" | "err" } | null>(null);
   const notify = (m: string, k?: "ok" | "err") => { setToast({ m, k }); setTimeout(() => setToast(null), 2200); };
@@ -99,11 +167,24 @@ export default function Page() {
     }
   }, [bridgeReady]);
 
+  const isWebUrl = (p: string) => /^blob:|^https?:/i.test(p || "");
+  const downloadUrl = (url: string) => {
+    const a = document.createElement("a");
+    a.href = url;
+    const name = webNamesRef.current.get(url) || "";
+    if (name) a.download = name;
+    a.rel = "noopener";
+    a.click();
+  };
+
   // resilient open helpers (Electron IPC -> gzqrExtra fallback)
   const openPath = async (path: string) => {
     try {
       const w: any = window as any;
-      if (!bridgeReady && !(w?.electron?.ipc)) { notify(lang === "ru" ? "Доступно в десктопном приложении" : "Desktop app required", "err"); return; }
+      if (!bridgeReady && !(w?.electron?.ipc)) {
+        if (isWebUrl(path)) { window.open(path, "_blank", "noopener"); return; }
+        notify(tr.desktopRequired, "err"); return;
+      }
       if (w?.gzqrExtra?.openPath) return await w.gzqrExtra.openPath(path);
       return await w?.electron?.ipc?.invoke?.("file.openPath", path);
     } catch (e) { notify("Open error: " + String((e as any)?.message || e), "err"); }
@@ -111,7 +192,10 @@ export default function Page() {
   const showInFolder = async (path: string) => {
     try {
       const w: any = window as any;
-      if (!bridgeReady && !(w?.electron?.ipc)) { notify(lang === "ru" ? "Доступно в десктопном приложении" : "Desktop app required", "err"); return; }
+      if (!bridgeReady && !(w?.electron?.ipc)) {
+        if (isWebUrl(path)) { downloadUrl(path); return; }
+        notify(tr.desktopRequired, "err"); return;
+      }
       if (w?.gzqrExtra?.showInFolder) return await w.gzqrExtra.showInFolder(path);
       return await w?.electron?.ipc?.invoke?.("file.showInFolder", path);
     } catch (e) { notify("Show error: " + String((e as any)?.message || e), "err"); }
@@ -121,9 +205,11 @@ export default function Page() {
   const [passMode, setPassMode] = useState<"text" | "file">("text");
   const [pass, setPass] = useState(""); const passOk = pass.length >= 20;
   const [passFile, setPassFile] = useState<string>("");
+  const [passFileObj, setPassFileObj] = useState<File | null>(null);
 
   // IO
   const [encIn, setEncIn] = useState("");
+  const [encFiles, setEncFiles] = useState<File[]>([]);
   const [outName, setOutName] = useState("1"); // default numbering base
   const [bindPhoto, setBindPhoto] = useState(false); const [photoPath, setPhotoPath] = useState("");
 
@@ -141,6 +227,8 @@ export default function Page() {
   const [logs, setLogs] = useState("⛔");
   const [pdf, setPdf] = useState(""); const [pngDir, setPngDir] = useState("");
   const [decOutDir, setDecOutDir] = useState(""), [decTar, setDecTar] = useState(""), [decFile, setDecFile] = useState("");
+  const [decFiles, setDecFiles] = useState<File[]>([]);
+  const webNamesRef = useRef<Map<string, string>>(new Map());
 
   // hook progress streams
   useEffect(() => {
@@ -154,9 +242,16 @@ export default function Page() {
   const havePass = passMode === "file" ? !!passFile : passOk;
   const browserOnly = isClient && !bridgeReady;
 
-  // Кнопки не зависят от кредитов; в браузере блокируем, если нет мостика.
-  const canEncode = bridgeReady && !!encIn && havePass && (!bindPhoto || !!photoPath);
-  const canDecode = bridgeReady && !!(pngDir || pdf) && havePass;
+  // Кнопки не зависят от кредитов; в браузере даём нажать и показываем подсказку.
+  const canEncode = !!encIn && havePass && (!bindPhoto || !!photoPath);
+  const canDecode = !!(pngDir || pdf) && havePass;
+  const encShowTarget = pngDir || pdf;
+  const canOpenPdf = !!pdf && (bridgeReady || isWebUrl(pdf));
+  const canShowEnc = !!encShowTarget && (bridgeReady || isWebUrl(encShowTarget));
+  const decOpenTarget = decFile || decTar || decOutDir || pdf;
+  const decShowTarget = decOutDir || decTar || pngDir;
+  const canOpenDec = !!decOpenTarget && (bridgeReady || isWebUrl(decOpenTarget));
+  const canShowDec = !!decShowTarget && (bridgeReady || isWebUrl(decShowTarget));
 
   const ipcPick = useIPC("file.pickPath"), ipcPdf = useIPC("pdf.toPngs");
 
@@ -175,30 +270,90 @@ export default function Page() {
         await (window as any).gzqrExtra.copy(WALLET_ADDR);
         notify(tr.copied, "ok"); return;
       }
-      notify(lang === "ru" ? "Копирование недоступно" : "Copy not available", "err");
+      notify(tr.copyNotAvailable, "err");
+    } catch (e: any) { notify(String(e?.message || e), "err"); }
+  };
+
+  const webEncode = async () => {
+    try {
+      if (!encFiles.length) { notify(tr.dropFile, "err"); return; }
+      if (passMode === "file" && !passFileObj) { notify(tr.passFile, "err"); return; }
+      if (plan === "oss" && usePaperX) { notify(tr.desktopRequired, "err"); return; }
+      setPEnc(0); setPdf(""); setPngDir("");
+      const form = new FormData();
+      encFiles.forEach((f) => {
+        form.append("files", f, f.name);
+        const rel = (f as any).webkitRelativePath || f.name;
+        form.append("paths", rel);
+      });
+      if (passMode === "file" && passFileObj) form.append("passFile", passFileObj, passFileObj.name);
+      else form.append("pass", pass);
+      form.append("makePdf", plan === "pro" ? "1" : "0");
+      form.append("outName", outName || "");
+      const res = await fetch("/api/gzqr/encode", { method: "POST", body: form });
+      if (!res.ok) { const t = await res.text(); notify(t || "Encode error", "err"); return; }
+      const kind = res.headers.get("x-gzqr-kind") || (plan === "pro" ? "pdf" : "zip");
+      const filename = res.headers.get("x-gzqr-filename") || (kind === "pdf" ? "QR.pdf" : "qrcodes.zip");
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      webNamesRef.current.set(url, filename);
+      if (kind === "pdf") { setPdf(url); setPngDir(""); notify(tr.donePdf, "ok"); }
+      else { setPngDir(url); setPdf(""); notify("QR PNG ready", "ok"); }
+      setPEnc(100);
+    } catch (e: any) { notify(String(e?.message || e), "err"); }
+  };
+
+  const webDecode = async () => {
+    try {
+      if (!decFiles.length) { notify(tr.browsePdf, "err"); return; }
+      if (passMode === "file" && !passFileObj) { notify(tr.passFile, "err"); return; }
+      setPDec(0);
+      const form = new FormData();
+      decFiles.forEach((f) => {
+        form.append("files", f, f.name);
+        const rel = (f as any).webkitRelativePath || f.name;
+        form.append("paths", rel);
+      });
+      if (passMode === "file" && passFileObj) form.append("passFile", passFileObj, passFileObj.name);
+      else form.append("pass", pass);
+      const res = await fetch("/api/gzqr/decode", { method: "POST", body: form });
+      if (!res.ok) { const t = await res.text(); notify(t || "Decode error", "err"); return; }
+      const kind = res.headers.get("x-gzqr-kind") || "file";
+      const filename = res.headers.get("x-gzqr-filename") || (kind === "file" ? "restored.bin" : "restored.tar");
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      webNamesRef.current.set(url, filename);
+      if (kind === "file") { setDecFile(url); setDecTar(""); setDecOutDir(""); }
+      else { setDecTar(url); setDecFile(""); setDecOutDir(""); }
+      setPDec(100);
+      notify(tr.doneOpen, "ok");
     } catch (e: any) { notify(String(e?.message || e), "err"); }
   };
 
   return (
-    <div style={{ display: "grid", gap: 14, maxWidth: 980, margin: "16px auto" }}>
+    <div dir={isRtl ? "rtl" : "ltr"} style={{ display: "grid", gap: 14, maxWidth: 980, margin: "16px auto" }}>
       <Toast msg={toast?.m || ""} kind={toast?.k} />
       {/* Top controls */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h2 style={{ margin: 0 }}>GitZipQR</h2>
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          {browserOnly && <div className="tag">{lang === "ru" ? "Браузер" : "Browser"}</div>}
-          <div><button className={`tag ${lang === "en" ? "active" : ""}`} onClick={() => setLang("en")}>EN</button><button className={`tag ${lang === "ru" ? "active" : ""}`} onClick={() => setLang("ru")}>RU</button></div>
+          {browserOnly && <div className="tag">{tr.browser}</div>}
+          <div>
+            <button className={`tag ${lang === "en" ? "active" : ""}`} onClick={() => setLang("en")}>EN</button>
+            <button className={`tag ${lang === "ru" ? "active" : ""}`} onClick={() => setLang("ru")}>RU</button>
+            <button className={`tag ${lang === "kk" ? "active" : ""}`} onClick={() => setLang("kk")}>KZ</button>
+            <button className={`tag ${lang === "ar" ? "active" : ""}`} onClick={() => setLang("ar")}>AR</button>
+            <button className={`tag ${lang === "zh" ? "active" : ""}`} onClick={() => setLang("zh")}>中文</button>
+          </div>
           <div><button className={`tag ${plan === "oss" ? "active" : ""}`} onClick={() => setPlan("oss")}>OSS</button><button className={`tag ${plan === "pro" ? "active" : ""}`} onClick={() => setPlan("pro")}>PRO</button></div>
         </div>
       </div>
 
       {browserOnly && (
         <div className="card" style={{ display: "grid", gap: 6 }}>
-          <strong>{lang === "ru" ? "Веб-режим" : "Web mode"}</strong>
+          <strong>{tr.webModeTitle}</strong>
           <div style={{ fontSize: 13, opacity: .85 }}>
-            {lang === "ru"
-              ? "Шифрование и работа с файлами выполняются через десктопное приложение. В браузере доступен только блок поддержки."
-              : "Encryption/decryption run via the desktop app. In browser mode you only have the support section."}
+            {tr.webModeText}
           </div>
         </div>
       )}
@@ -221,7 +376,7 @@ export default function Page() {
           <span className="label">{tr.bindPhoto}</span>
         </label>
         <button disabled={!bindPhoto || !bridgeReady} onClick={async () => {
-          if (!bridgeReady) { notify(lang === "ru" ? "Нужен десктопный клиент" : "Desktop app required", "err"); return; }
+          if (!bridgeReady) { notify(tr.desktopRequired, "err"); return; }
           const r = await (window as any).gzqrExtra?.pickImage?.(); if (r?.ok) setPhotoPath(r.path);
         }}>{tr.choosePhoto}</button>
         <div style={{ fontSize: 12, opacity: .85 }}>Фото: <code>{photoPath || "—"}</code></div>
@@ -246,11 +401,11 @@ export default function Page() {
             <>
               <button onClick={async () => {
                 if (bridgeReady) {
-                  const r = await (window as any).gzqrExtra?.pickPassFile?.(); if (r?.ok) setPassFile(r.path);
+                  const r = await (window as any).gzqrExtra?.pickPassFile?.(); if (r?.ok) { setPassFile(r.path); setPassFileObj(null); }
                 } else {
                   const input = document.createElement("input");
                   input.type = "file"; input.accept = ".txt,.bin,.key,.pass";
-                  input.onchange = () => { const f = input.files?.[0]; if (f) setPassFile(f.name); };
+                  input.onchange = () => { const f = input.files?.[0]; if (f) { setPassFile(f.name); setPassFileObj(f); } };
                   input.click();
                 }
               }}>Browse…</button>
@@ -274,7 +429,9 @@ export default function Page() {
             }
           }}>{tr.pick}</button>
           <input ref={encFileRef} type="file" style={{ display: "none" }} accept=".zip,.tar,.gz,.tgz,.7z,.rar" onChange={e => {
-            const f = e.target.files?.[0];
+            const list = Array.from(e.target.files || []);
+            setEncFiles(list);
+            const f = list[0];
             if (f) {
               const rel = (f as any).webkitRelativePath || "";
               if (rel) setEncIn(rel.split("/")[0] || f.name);
@@ -289,7 +446,9 @@ export default function Page() {
         </div>
         <div className="drop" onDragOver={e => e.preventDefault()} onDrop={e => {
           e.preventDefault();
-          const f = (e.dataTransfer!.files || [])[0] as any;
+          const list = Array.from(e.dataTransfer!.files || []);
+          setEncFiles(list);
+          const f = list[0] as any;
           const p = (f?.path || "");
           if (p) setEncIn(p);
           else if (f?.name) setEncIn(f.name);
@@ -312,14 +471,14 @@ export default function Page() {
         {/* Action row */}
         <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
           <button className="btn-primary" disabled={!canEncode} onClick={async () => {
-            if (!bridgeReady) { notify(lang === "ru" ? "Нужен десктопный клиент" : "Desktop app required", "err"); return; }
+            if (!bridgeReady) { await webEncode(); return; }
             try {
               setPEnc(0); setPdf(""); setPngDir("");
               if (plan === "pro") {
                 const r = await (window as any).gzqrExtra?.encRun?.({ input: encIn, ...(passMode === "file" ? { passFile } : { pass }), makePdf: true, photo: bindPhoto ? photoPath : undefined, outName, pro: true });
                 if (!r?.ok) { notify("Encode error", "err"); return; }
                 if (r.pdf) setPdf(r.pdf);
-                notify(lang === "ru" ? "Готово: PDF создан" : "Done: PDF ready", "ok");
+                notify(tr.donePdf, "ok");
               } else {
                 if (usePaperX) {
                   const r = await (window as any).gzqrExtra?.paperxRun?.({
@@ -344,10 +503,10 @@ export default function Page() {
 
           {(plan === "pro") && (
             <>
-              <button disabled={!bridgeReady || !pdf} onClick={() => openPath(pdf)}>{tr.openPdf}</button>
-              <button disabled={!bridgeReady || !(pngDir || pdf)} onClick={() => showInFolder(pngDir || pdf)}>{tr.showInFolder}</button>
+              <button disabled={!canOpenPdf} onClick={() => openPath(pdf)}>{tr.openPdf}</button>
+              <button disabled={!canShowEnc} onClick={() => showInFolder(pngDir || pdf)}>{tr.showInFolder}</button>
               <button disabled={!bridgeReady || (!pngDir && !pdf)} onClick={async () => {
-                if (!bridgeReady) { notify(lang === "ru" ? "Нужен десктопный клиент" : "Desktop app required", "err"); return; }
+                if (!bridgeReady) { notify(tr.desktopRequired, "err"); return; }
                 const canvas = document.createElement("canvas"); const ctx = canvas.getContext("2d")!;
                 canvas.width = 2048; canvas.height = 2048; ctx.fillStyle = "#000"; ctx.fillRect(0, 0, 2048, 2048);
                 const data = canvas.toDataURL("image/webp", 0.95);
@@ -358,16 +517,17 @@ export default function Page() {
           )}
           {(plan === "oss" && usePaperX) && (
             <>
-              <button disabled={!bridgeReady || !pdf} onClick={() => openPath(pdf)}>{tr.openPdf}</button>
-              <button disabled={!bridgeReady || !pdf} onClick={() => showInFolder(pdf)}>{tr.showInFolder}</button>
+              <button disabled={!canOpenPdf} onClick={() => openPath(pdf)}>{tr.openPdf}</button>
+              <button disabled={!canOpenPdf} onClick={() => showInFolder(pdf)}>{tr.showInFolder}</button>
             </>
           )}
           {(plan === "oss" && !usePaperX) && (
             <>
-              <button disabled={!bridgeReady || !pngDir} onClick={() => showInFolder(pngDir)}>{tr.showInFolder}</button>
+              <button disabled={!canShowEnc} onClick={() => showInFolder(pngDir)}>{tr.showInFolder}</button>
             </>
           )}
         </div>
+        {browserOnly && <div style={{ fontSize: 12, opacity: .7 }}>{tr.webNote}</div>}
         <Progress value={pEnc} />
       </section>
 
@@ -381,7 +541,7 @@ export default function Page() {
             } else {
               const input = document.createElement("input");
               input.type = "file"; input.accept = ".pdf,.png,.webp";
-              input.onchange = () => { const f = input.files?.[0]; if (f) { setPdf(f.name); setPngDir(f.name); } };
+              input.onchange = () => { const f = input.files?.[0]; if (f) { setDecFiles([f]); setPdf(f.name); setPngDir(f.name); } };
               input.click();
             }
           }}>{tr.browsePdf}</button>
@@ -394,11 +554,15 @@ export default function Page() {
             }
           }}>{tr.pick}</button>
           <input ref={decFileRef} type="file" style={{ display: "none" }} accept=".pdf,.png,.webp" onChange={e => {
-            const f = e.target.files?.[0];
+            const list = Array.from(e.target.files || []);
+            setDecFiles(list);
+            const f = list[0];
             if (f) { setPngDir(f.name); setPdf(f.name); }
           }} />
           <input ref={decDirRef} type="file" style={{ display: "none" }} multiple onChange={e => {
-            const f = e.target.files?.[0];
+            const list = Array.from(e.target.files || []);
+            setDecFiles(list);
+            const f = list[0];
             if (f) {
               const rel = (f as any).webkitRelativePath || "";
               if (rel) {
@@ -416,12 +580,12 @@ export default function Page() {
           <label className="tag"><input type="radio" checked={passMode === "text"} onChange={() => setPassMode("text")} /> {tr.passText}</label>
           <label className="tag"><input type="radio" checked={passMode === "file"} onChange={() => setPassMode("file")} /> {tr.passFile}</label>
           {passMode === "file"
-            ? (<><button disabled={!bridgeReady} onClick={async () => {
+            ? (<><button onClick={async () => {
               if (bridgeReady) {
-                const r = await (window as any).gzqrExtra?.pickPassFile?.(); if (r?.ok) setPassFile(r.path);
+                const r = await (window as any).gzqrExtra?.pickPassFile?.(); if (r?.ok) { setPassFile(r.path); setPassFileObj(null); }
               } else {
                 const input = document.createElement("input"); input.type = "file"; input.accept = ".txt,.bin,.key,.pass";
-                input.onchange = () => { const f = input.files?.[0]; if (f) setPassFile(f.name); };
+                input.onchange = () => { const f = input.files?.[0]; if (f) { setPassFile(f.name); setPassFileObj(f); } };
                 input.click();
               }
             }}>Browse…</button><code style={{ fontSize: 12, opacity: .85 }}>{passFile || "⛔"}</code></>)
@@ -429,23 +593,24 @@ export default function Page() {
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
           <button className="btn-primary" disabled={!canDecode} onClick={async () => {
-            if (!bridgeReady) { notify(lang === "ru" ? "Нужен десктопный клиент" : "Desktop app required", "err"); return; }
+            if (!bridgeReady) { await webDecode(); return; }
             try {
               setPDec(0);
               const r = await (window as any).gzqrExtra?.decRun?.({ dir: pngDir, ...(passMode === "file" ? { passFile } : { pass }), photo: bindPhoto ? photoPath : undefined, outName, pro: plan === "pro" });
               if (!r?.ok) { notify("Decode error", "err"); return; }
               setDecOutDir(r.outDir || ""); setDecTar(r.tarPath || ""); setDecFile(r.restoredFile || "");
-              notify(lang === "ru" ? "Готово: можно открыть" : "Done: you may open", "ok");
+              notify(tr.doneOpen, "ok");
             } catch (e: any) { notify(String(e?.message || e), "err"); }
           }}>{tr.collect}</button>
           <button disabled={!bridgeReady} onClick={() => { if (!bridgeReady) return; (window as any).gzqrExtra?.decCancel?.(); }}>{tr.cancel}</button>
           {plan === "pro" && <button disabled={!bridgeReady} onClick={async () => {
-            if (!bridgeReady) { notify(lang === "ru" ? "Нужен десктопный клиент" : "Desktop app required", "err"); return; }
+            if (!bridgeReady) { notify(tr.desktopRequired, "err"); return; }
             const r = await (window as any).gzqrExtra?.liveScan?.(); if (!r?.ok) notify("Live scan error", "err"); else notify("Live scan started", "ok");
           }}>{tr.liveScan}</button>}
-          <button disabled={!bridgeReady || (!decFile && !decOutDir && !pdf)} onClick={() => openPath(decFile || decOutDir || pdf)}>{tr.open}</button>
-          <button disabled={!bridgeReady || (!decOutDir && !pngDir)} onClick={() => showInFolder(decOutDir || pngDir)}>{tr.showInFolder}</button>
+          <button disabled={!canOpenDec} onClick={() => openPath(decFile || decTar || decOutDir || pdf)}>{tr.open}</button>
+          <button disabled={!canShowDec} onClick={() => showInFolder(decOutDir || decTar || pngDir)}>{tr.showInFolder}</button>
         </div>
+        {browserOnly && <div style={{ fontSize: 12, opacity: .7 }}>{tr.webNote}</div>}
         <Progress value={pDec} />
         {(decTar || decOutDir || decFile) && <div style={{ fontSize: 12, opacity: .9 }}>
           {decTar && <>TAR: <code>{decTar}</code><br /></>}
